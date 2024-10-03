@@ -9,14 +9,32 @@
 
 <body>
 
-    <p id="elem">めんま</p>
+    <h1 id="heading">スベスベ饅頭ガニ🦀</h1>
+    <p id="elem">ゴリゴリ剛毛ガニ🦀</p>
+
 
     <script>
-        let elem = document.getElementById('elem');
+        // H1
+        const heading = document.getElementById('heading');
+        console.log(heading);
 
-        elem.style.color = '#ff0000';
-        elem.style.backgroundColor = '#dddddd';
+        heading.style.fontSize = '36px';
+        heading.style.marginBottom = '60px';
 
+        // P
+        const elem = document.getElementById('elem');
+        console.log(elem);
+
+        elem.addEventListener('mouseover', function () {
+            elem.style.fontSize = '30px';
+            elem.style.backgroundColor = '#dddddd';
+
+            heading.style.fontSize = '60px';
+        });
+
+        elem.addEventListener('mouseout', function () {
+            elem.style.fontSize = '16px';
+        });
     </script>
 </body>
 
