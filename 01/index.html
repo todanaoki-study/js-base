@@ -9,31 +9,24 @@
 
 <body>
 
-    <h1 id="heading">スベスベ饅頭ガニ🦀</h1>
-    <p id="elem">ゴリゴリ剛毛ガニ🦀</p>
+    <h1 id="heading">けばけば枝毛ガニ</h1>
+    <p id="elem">ゴリゴリ剛毛ガニ</p>
 
+    <img id="image" src="https://picsum.photos/200/300?image=0">
 
     <script>
-        // H1
-        const heading = document.getElementById('heading');
-        console.log(heading);
+        const image = document.getElementById('image');
+        let src = image.getAttribute('src');
+        console.log(src);
 
-        heading.style.fontSize = '36px';
-        heading.style.marginBottom = '60px';
-
-        // P
-        const elem = document.getElementById('elem');
-        console.log(elem);
+        let elem = document.getElementById('elem');
 
         elem.addEventListener('mouseover', function () {
-            elem.style.fontSize = '30px';
-            elem.style.backgroundColor = '#dddddd';
-
-            heading.style.fontSize = '60px';
+            image.setAttribute('src', 'https://picsum.photos/200/300?image=100');
         });
 
         elem.addEventListener('mouseout', function () {
-            elem.style.fontSize = '16px';
+            image.setAttribute('src', src);
         });
     </script>
 </body>
