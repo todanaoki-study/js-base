@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button id="left">←</button>
+        <button id="center">■</button>
+        <button id="right">→</button>
+    </div>
+
+    <img id="monster" src="https://pbs.twimg.com/media/EXae-7lWkAANYU6.png" alt="">
+
+    <script>
+
+        const left_btn = document.getElementById('left');
+        const center_btn = document.getElementById('center');
+        const right_btn = document.getElementById('right');
+
+        const player = document.getElementById('monster');
+
+        let num = 0;
+
+        left_btn.addEventListener('click', function () {
+
+            player.style.transform = `translateX(${num -= 5}px)`;
+        })
+
+        center_btn.addEventListener('click', function () {
+            player.style.transform = `translateX(${num = 0}px)`;
+        })
+
+        right_btn.addEventListener('click', function () {
+
+            player.style.transform = `translateX(${num += 5}px)`;
+        })
+    </script>
+</body>
+
+</html>

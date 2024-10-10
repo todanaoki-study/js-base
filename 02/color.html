@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button id="red">ff0000</button>
+        <button id="green">00ff00</button>
+        <button id="blue">0000ff</button>
+    </div>
+
+    <script>
+        let keep;
+
+        const change_red = document.getElementById('red');
+        const change_green = document.getElementById('green');
+        const change_blue = document.getElementById('blue');
+
+        change_red.addEventListener('click', function () {
+            keep = change_red.innerHTML;
+            console.log(keep);
+            document.body.style.backgroundColor = `#${keep}`;
+        })
+
+        change_green.addEventListener('click', function () {
+            keep = change_green.innerHTML;
+            console.log(keep);
+            document.body.style.backgroundColor = `#${keep}`;
+        })
+
+        change_blue.addEventListener('click', function () {
+            keep = change_blue.innerHTML;
+            console.log(keep);
+            document.body.style.backgroundColor = `#${keep}`;
+        })
+    </script>
+</body>
+
+</html>
