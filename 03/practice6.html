@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img id="enemy" class="sample" src="./img/monster (1).png" alt="">
+    <p id="name">enemy</p>
+    <p id="hp">10</p>
+
+    <script>
+        let enemy = document.getElementById("enemy");
+
+
+        let hp = document.getElementById("hp");
+
+        let num = 10;
+        console.log(hp.innerHTML);
+
+        enemy.addEventListener('click', function () {
+            num--;
+            if (num >= 0) {
+                hp.innerHTML = (num);
+                if (num === 0) {
+                    console.log("通ってる");
+                    enemy.classList.add('finish');
+                }
+            }
+        }
+        )
+    </script>
+
+    <style>
+        #enemy {
+            transition: .3s;
+        }
+
+        .finish {
+            transform: rotate(720deg) scale(0);
+        }
+    </style>
+</body>
+
+</html>

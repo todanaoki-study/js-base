@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <button id="btn">メニュー</button>
+    <div id="menu">
+        <ul>
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>CONTACT</li>
+        </ul>
+    </div>
+
+    <style>
+        #menu {
+            display: inline-block;
+
+            background-color: #222;
+            color: #fff;
+            transform: translateY(-200%);
+            transition: .3s;
+        }
+
+        .move {
+            transform: translateY(0%);
+        }
+    </style>
+
+
+    <script>
+        let btn = document.getElementById("btn");
+        let menu = document.getElementById("menu");
+
+        btn.addEventListener('click', function () {
+            menu.classList.add('move');
+        });
+    </script>
+</body>
+
+
+</html>
