@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img id="enemy" src="./img/monster (1).png" alt="">
+    <p id="name">enemy</p>
+    <p id="hp">0</p>
+
+    <script>
+        let enemy = document.getElementById("enemy");
+        let hp = document.getElementById("hp");
+
+        let num = 0;
+
+        console.log(hp.innerHTML);
+
+        enemy.addEventListener('click', function () {
+            num++;
+            if (num <= 30) {
+                if (num % 10 < 1) {
+                    hp.innerHTML = (num + "回達成おめでとう");
+                    console.log(num);
+                    if (num == 30) {
+                        hp.innerHTML = (num + "回クリア！おめでとう");
+                    }
+                }
+                else {
+                    hp.innerHTML = (num + "回");
+                }
+            }
+        }
+        )
+    </script>
+</body>
+
+</html>
