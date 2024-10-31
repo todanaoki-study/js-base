@@ -20,11 +20,11 @@
         }
 
         .close {
-            transform: rotateY(720deg);
+            transform: rotate3d(0);
         }
 
         .open {
-            transform: rotateY(0deg);
+            transform: rotate3d(1, 1, 1, 45deg);
             transition: .3s;
         }
     </style>
@@ -66,7 +66,6 @@
                     break;
             }
             result.classList.toggle("open");
-
         })
     </script>
 </body>
