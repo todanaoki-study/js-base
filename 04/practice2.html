@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+</head>
+
+<body>
+
+    <button id="btn">占う</button>
+    <p id="result">結果が表示されます。</p>
+    <p id="message">何か一言が表示されます。</p>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.getElementById("result");
+        let message = document.getElementById("message");
+
+        let num = 0;
+
+        btn.addEventListener("click", function () {
+            switch (num = Math.floor(Math.random() * 4) + 1) {
+                case 1:
+
+                    result.innerHTML = "大吉";
+                    message.innerHTML = "ダーツデリートが決まる"
+                    break;
+
+                case 2:
+                    result.innerHTML = "中吉";
+                    message.innerHTML = "トップ解決力アップ"
+                    break;
+
+                case 3:
+                    result.innerHTML = "小吉";
+                    message.innerHTML = "トリガー踏まない"
+                    break;
+
+                case 4:
+                    result.innerHTML = "凶";
+                    message.innerHTML = "天門踏む"
+                    break;
+
+                case 5:
+                    result.innerHTML = "大凶";
+                    message.innerHTML = "次回死ぬ"
+                    break;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

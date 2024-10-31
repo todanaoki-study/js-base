@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+</head>
+
+<body>
+
+    <button id="btn">占う</button>
+    <img id="result" class="close">
+    <p id="message">何か一言が表示されます。</p>
+
+    <style>
+        button {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            transform: rotateY(720deg);
+        }
+
+        .open {
+            transform: rotateY(0deg);
+            transition: .3s;
+        }
+    </style>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.getElementById("result");
+        let message = document.getElementById("message");
+
+        let num = 0;
+
+        btn.addEventListener("click", function () {
+
+            switch (num = Math.floor(Math.random() * 5) + 1) {
+                case 1:
+
+                    result.src = "./img/daikichi.png"
+                    message.innerHTML = "ダーツデリートが決まる"
+                    break;
+
+                case 2:
+                    result.src = "./img/chuukichi.png"
+                    message.innerHTML = "トップ解決力アップ"
+                    break;
+
+                case 3:
+                    result.src = "./img/syoukichi.png"
+                    message.innerHTML = "トリガー踏まない"
+                    break;
+
+                case 4:
+                    result.src = "./img/kyou.png"
+                    message.innerHTML = "天門踏む"
+                    break;
+
+                case 5:
+                    result.src = "./img/daikyou.png"
+                    message.innerHTML = "次回死ぬ"
+                    break;
+            }
+            result.classList.toggle("open");
+
+        })
+    </script>
+</body>
+
+</html>

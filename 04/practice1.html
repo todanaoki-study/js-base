@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+
+<body class="test">
+    <button id="btn" class="green">click!</button>
+
+
+    <script>
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("click", function () {
+
+            switch (btn.classList.value) {
+                case "red":
+                    console.log("red");
+                    document.body.style.backgroundColor = "#ff0000";
+                    break;
+                case "green":
+                    console.log("green");
+                    document.body.style.backgroundColor = "#008000";
+                    break;
+                default:
+                    console.log("何もなし");
+            }
+        })
+    </script>
+</body>
+
+</html>
