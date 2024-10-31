@@ -63,9 +63,13 @@
             if (num == 0) {
                 menu.classList.add('open');
                 num = 1;
+
+                btn.innerHTML = "閉じる";
             } else if (num == 1) {
                 menu.classList.remove('open');
                 num = 0;
+
+                btn.innerHTML = "メニュー";
             }
         });
     </script>
