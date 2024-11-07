@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+</head>
+
+<body>
+
+    <button id="btn">占う</button>
+
+    <img id="result" class="close">
+
+    <p id="count">占った回数:0</p>
+
+    <p id="count-category">0回</p>
+
+    <p id="message">何か一言が表示されます。</p>
+
+    <style>
+        button {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            transition: .3s;
+        }
+
+        .open {
+            transform: rotateY(360deg);
+        }
+
+        #message {
+            width: fit-content;
+            background-color: antiquewhite;
+        }
+
+        .choice-color {
+            width: fit-content;
+            background-color: beige;
+        }
+    </style>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.getElementById("result");
+        let message = document.getElementById("message");
+        let count = document.getElementById("count");
+        let category = document.getElementById("count-category");
+
+        let counter = 0;
+
+        let d_counter = 0;
+        let c_counter = 0;
+        let s_counter = 0;
+        let k_counter = 0;
+        let dk_counter = 0;
+
+        let num = 0;
+
+        let daikichi = 0;
+        btn.addEventListener("click", function () {
+
+            num = Math.floor(Math.random() * 10) + 1
+            counter++;
+
+            switch (num) {
+                case 1:
+                    result.src = "./img/daikichi.png"
+                    message.innerHTML = "ダーツデリートが決まる"
+                    d_counter++;
+                    break;
+
+                case 2:
+                case 3:
+                    result.src = "./img/chuukichi.png"
+                    message.innerHTML = "トップ解決力アップ"
+                    c_counter++;
+                    break;
+
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    result.src = "./img/syoukichi.png"
+                    message.innerHTML = "トリガー踏まない"
+                    s_counter++;
+                    break;
+
+                case 8:
+                case 9:
+                    result.src = "./img/kyou.png"
+                    message.innerHTML = "天門踏む"
+                    k_counter++;
+                    break;
+
+                case 10:
+                    result.src = "./img/daikyou.png"
+                    message.innerHTML = "次回死ぬ"
+                    dk_counter++;
+                    break;
+                default:
+                    console.log("error");
+                    break;
+            }
+
+            console.log(num);
+
+            result.classList.toggle("open");
+            count.innerHTML = "占った回数:" + counter;
+
+            category.innerHTML = "大吉:" + d_counter + "回、" + "中吉:" + c_counter + "回、" + "小吉:" + s_counter + "回、" + "凶:" + k_counter + "回、" + "大凶:" + dk_counter + "回";
+
+        })
+    </script>
+</body>
+
+</html>

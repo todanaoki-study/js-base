@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+</head>
+
+<body>
+
+    <!-- 4.課題おみくじ３の改造例４の実装
+     今回当たったクジの結果に色をつける -->
+
+    <button id="btn">占う</button>
+
+    <img id="result" class="close">
+
+    <p id="count">占った回数:0</p>
+
+    <p id="d_counter" class="color">0回</p>
+    <p id="c_counter" class="color">0回</p>
+    <p id="s_counter" class="color">0回</p>
+    <p id="k_counter" class="color">0回</p>
+    <p id="dk_counter" class="color">0回</p>
+
+    <p id="message">何か一言が表示されます。</p>
+
+    <style>
+        button {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            transition: .3s;
+        }
+
+        .open {
+            transform: rotateY(360deg);
+        }
+
+        #message {
+            width: fit-content;
+            background-color: antiquewhite;
+        }
+
+
+
+        .color {
+            width: fit-content;
+            transition: .3s;
+        }
+
+        .color-choice {
+            background-color: rgb(255, 77, 77);
+            transform: scale(1.2);
+        }
+    </style>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.getElementById("result");
+        let message = document.getElementById("message");
+        let count = document.getElementById("count");
+
+        let d_count = document.getElementById("d_counter");
+        let c_count = document.getElementById("c_counter");
+        let s_count = document.getElementById("s_counter");
+        let k_count = document.getElementById("k_counter");
+        let dk_count = document.getElementById("dk_counter");
+
+
+
+        let counter = 0;
+
+        let d_counter = 0;
+        let c_counter = 0;
+        let s_counter = 0;
+        let k_counter = 0;
+        let dk_counter = 0;
+
+        let num = 0;
+
+        let daikichi = 0;
+        btn.addEventListener("click", function () {
+
+            num = Math.floor(Math.random() * 10) + 1
+            counter++;
+
+            d_count.classList.remove("color-choice");
+            c_count.classList.remove("color-choice");
+            s_count.classList.remove("color-choice");
+            k_count.classList.remove("color-choice");
+            dk_count.classList.remove("color-choice");
+
+            switch (num) {
+                case 1:
+                    result.src = "./img/daikichi.png"
+                    message.innerHTML = "ダーツデリートが決まる"
+                    d_counter++;
+
+                    if (d_counter > 3) {
+                        message.innerHTML = "お、運がいいね"
+                    }
+
+                    d_count.innerHTML = d_counter + "回";
+                    d_count.classList.add("color-choice");
+                    break;
+
+                case 2:
+                case 3:
+                    result.src = "./img/chuukichi.png"
+                    message.innerHTML = "トップ解決力アップ"
+                    c_counter++;
+                    c_count.innerHTML = c_counter + "回";
+                    c_count.classList.add("color-choice");
+                    break;
+
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    result.src = "./img/syoukichi.png"
+                    message.innerHTML = "トリガー踏まない"
+                    s_counter++;
+                    s_count.innerHTML = s_counter + "回";
+                    s_count.classList.add("color-choice");
+                    break;
+
+                case 8:
+                case 9:
+                    result.src = "./img/kyou.png"
+                    message.innerHTML = "天門踏む"
+                    k_counter++;
+                    k_count.innerHTML = k_counter + "回";
+                    k_count.classList.add("color-choice");
+                    break;
+
+                case 10:
+                    result.src = "./img/daikyou.png"
+                    message.innerHTML = "次回死ぬ"
+                    dk_counter++;
+                    dk_count.innerHTML = dk_counter + "回";
+                    dk_count.classList.add("color-choice");
+                    break;
+                default:
+                    console.log("error");
+                    break;
+            }
+
+            console.log(num);
+
+            result.classList.toggle("open");
+            count.innerHTML = "占った回数:" + counter;
+        })
+    </script>
+</body>
+
+</html>

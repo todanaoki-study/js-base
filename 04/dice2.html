@@ -20,12 +20,11 @@
         }
 
         .close {
-            transform: rotate3d(0);
+            transition: .3s;
         }
 
         .open {
-            transform: rotate3d(1, 1, 1, 45deg);
-            transition: .3s;
+            transform: rotateY(360deg);
         }
     </style>
 
@@ -38,9 +37,10 @@
 
         btn.addEventListener("click", function () {
 
-            switch (num = Math.floor(Math.random() * 5) + 1) {
-                case 1:
+            num = Math.floor(Math.random() * 5) + 1
 
+            switch (num) {
+                case 1:
                     result.src = "./img/daikichi.png"
                     message.innerHTML = "ダーツデリートが決まる"
                     break;
@@ -64,8 +64,13 @@
                     result.src = "./img/daikyou.png"
                     message.innerHTML = "次回死ぬ"
                     break;
+                default:
+                    console.log("error");
+                    break;
             }
+
             result.classList.toggle("open");
+
         })
     </script>
 </body>
