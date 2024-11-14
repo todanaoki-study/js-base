@@ -70,8 +70,17 @@
             switch (num) {
                 case 1:
                     result.src = "./img/daikichi.png"
-                    message.innerHTML = "ダーツデリートが決まる"
                     d_counter++;
+
+                    if (d_counter > 0) {
+                        message.innerHTML = "ダーツデリートが決まる"
+                    }
+                    if (d_counter > 1) {
+                        message.innerHTML = "やるやん"
+                    }
+                    if (d_counter > 2) {
+                        message.innerHTML = "神です"
+                    }
                     break;
 
                 case 2:

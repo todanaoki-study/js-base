@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウント</title>
+</head>
+
+<body>
+    <button id="count">カウント</button>
+    <button id="sum">表示</button>
+    <p id="result">0</p>
+
+    <script>
+        let count = document.getElementById("count");
+        let sum = document.getElementById("sum");
+        let result = document.getElementById("result");
+
+        let num = 0;
+        let save = 0;
+
+        // クリックするたびカウンタが回る
+        count.addEventListener("click", function () {
+            num++;
+            result.innerHTML = num;
+        })
+
+
+
+        //リザルトクリックで合計出す
+        sum.addEventListener("click", function () {
+            while (num > 0) {
+                //おそらく同じaddEvent内だからnumの数値が引き渡せる。
+                //同スコープ扱いっぽい？
+                save += num;
+                num--;
+            }
+
+            result.innerHTML = save;
+        })
+
+    </script>
+</body>
+
+</html>

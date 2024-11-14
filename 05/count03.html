@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウント</title>
+</head>
+
+<body>
+    <button id="count">カウント</button>
+    <button id="sum">表示</button>
+    <p id="result">0</p>
+
+    <script>
+        let count = document.getElementById("count");
+        let sum = document.getElementById("sum");
+        let result = document.getElementById("result");
+
+        let num = 0;
+
+        result.innerHTML = num;
+        // クリックするたびカウンタが回る
+        count.addEventListener("click", function () {
+            num++;
+            result.innerHTML = num;
+        })
+
+
+
+        //リザルトクリックで合計出す
+        sum.addEventListener("click", function () {
+            let text = 0;
+
+            for (let save = 1; save < num; save++) {
+                text += "," + save;
+            }
+            result.innerHTML = text;
+        })
+
+    </script>
+</body>
+
+</html>
