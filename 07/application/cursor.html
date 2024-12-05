@@ -4,11 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>cursor</title>
 </head>
 
-<body>
+<style>
+    html {
+        cursor: none;
+    }
 
+    #icon {
+        width: 50px;
+        position: absolute;
+        transition: transform 0.2s;
+    }
+</style>
+
+<body>
+    <img id="icon" src="https://www.svgrepo.com/show/489642/pencil.svg" alt="" />
+
+    <script>
+
+        //マウスの追従
+        document.addEventListener("mousemove", function (e) {
+            console.log(e.clientX, e.clientY);
+            icon.style.top = e.clientY + "px";
+            icon.style.left = e.clientX + "px";
+        });
+
+        /* mousedownイベント（マウスを押した時） */
+        document.addEventListener("mousedown", function () {
+            icon.style.transform = "scale(1.5)";
+        });
+
+        /* mouseupイベント（マウスを離した時） */
+        document.addEventListener("mouseup", function () {
+            icon.style.transform = "scale(1.0)";
+        });
+
+
+    </script>
 </body>
 
 </html>
