@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+
+<body>
+    <script>
+        // function testFunc() {
+        //     console.log("関数が呼ばれました");
+        // }
+
+        // function testFunc(val1 = 10, val2 = 20) {
+        //     console.log(val1 + val2);
+        // }
+
+        //戻り値の問題。関数自身に処理結果を返す。
+        // function testFunc(val1 = 10, val2 = 20) {
+        //     return val1 + val2;
+        // }
+        //戻り値
+        // console.log(testFunc());
+        //通常
+        // console.log(testFunc(30, 50));
+
+        // let doller = changeDoller(100);
+        // console.log(doller);
+
+        // function changeDoller(yen) {
+        //     return yen / 150;
+        // }
+
+        // let text = setText("とだちゃん");
+        // console.log(text);
+        // function setText(name = "ユーザー！") {
+        //     return "Hello" + name;
+        // }
+
+        //関数式　変数に関数の処理を代入する。つまり変数が関数みたいな動きをするようになる。
+        const testFunc = function (val1, val2) {
+            return val1 + val2;
+        }
+
+        console.log(testFunc(10, 20));
+    </script>
+</body>
+
+</html>
