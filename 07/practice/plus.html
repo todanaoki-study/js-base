@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plus</title>
+</head>
+
+<body>
+    <p id="result">0</p>
+    <button id="plus">+</button>
+
+    <script>
+        const result = document.getElementById("result");
+        const plus = document.getElementById("plus");
+
+        let count = 0;
+
+        plus.addEventListener("click", function () {
+            count++;
+            result.innerHTML = count;
+        })
+    </script>
+</body>
+
+</html>

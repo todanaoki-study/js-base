@@ -22,50 +22,58 @@
     <p id="message">何か一言が表示されます。</p>
 
     <ul>
-        <li id="daikichi">大吉</li>
-        <li id="chuukichi">中吉</li>
-        <li id="syoukichi">小吉</li>
-        <li id="kyou">凶</li>
-        <li id="daikyou">大凶</li>
+        <li id="daikichi">大吉:0</li>
+        <li id="tyuukichi">中吉:0</li>
+        <li id="shoukichi">小吉:0</li>
+        <li id="kyou">凶:0</li>
+        <li id="daikyou">大凶:0</li>
     </ul>
 
     <script>
         const btn = document.getElementById('btn');
         const result = document.getElementById('result');
         const message = document.getElementById('message');
+
+        //ラベルの記憶
+        const label = [document.getElementById("daikichi"), document.getElementById("tyuukichi"),
+        document.getElementById("shoukichi"), document.getElementById("kyou"),
+        document.getElementById("daikyou")
+        ]
+
+        //画像の変数
         const path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji';
-
-        const daikichi = document.getElementById("daikichi")
-        const chuukichi = document.getElementById("chuukichi")
-        const syoukichi = document.getElementById("syoukichi")
-        const kyou = document.getElementById("kyou")
-        const daikyou = document.getElementById("daikyou")
         const img = ["daikichi.png", "chuukichi.png", "syoukichi.png", "kyou.png", "daikyou.png"]
-        const text = ["買ってないのにおみくじが当たる"
-            , "何もしていないのに褒められる"
-            , "頭皮の調子が良い"
-            , "コンタクトが割れる"
-            , "どこかの骨が折れる"];
 
-        const count = [];
-        for (let i = 0; i < 5; i++) {
-            count[i] = 0;
+
+        //おみくじの種類
+        const category = ["大吉", "中吉", "小吉", "凶", "大凶"];
+        //メッセージ
+        const text = ["買ってないのにおみくじが当たる", "何もしていないのに褒められる", "頭皮の調子が良い", "コンタクトが割れる", "どこかの骨が折れる"];
+        //それぞれのカウンタと初期化
+        const counter = [];
+        for (let i = 0; i < category.length; i++) {
+            counter[i] = 0;
         }
 
-
-
         btn.addEventListener('click', function () {
-            const num = Math.floor(Math.random() * 5);
+            //何が出るか決める　0=大吉、4=大凶
+            const random = Math.floor(Math.random() * 5);
+            //種類ごとに出た回数のカウント
+            counter[random] += 1;
 
-            result.setAttribute('src', `${path}/${img[num]}`);
-            message.innerHTML = text[num];
+            //処理
+            for (let i = 0; i < category.length; i++) {
+                label[i].innerHTML = category[i] + ":" + counter[i] + "回";;
+            }
 
-            //-続き-----------------getElementを配列にするところから始める
+            //画像の変換、出力
+            result.setAttribute('src', `${path}/${img[random]}`);
+            message.innerHTML = text[random];
+
+            //アニメーション
             result.classList.toggle('active');
 
-            count[num]++;
-
-
+            //
         });
     </script>
 </body>

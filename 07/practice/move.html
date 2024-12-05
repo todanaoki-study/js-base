@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+</head>
+
+<body>
+    <div>
+        <button id="right">→</button>
+    </div>
+    <img id="monster" src="https://pbs.twimg.com/media/EXae-7lWkAANYU6.png" alt="">
+
+    <script>
+        const right = document.getElementById("right");
+        const monster = document.getElementById("monster");
+
+        let num = 0;
+
+        right.addEventListener("click", function () {
+            num += 10;
+            monster.style.transform = `translateX(${num}px)`;
+        })
+    </script>
+</body>
+
+</html>

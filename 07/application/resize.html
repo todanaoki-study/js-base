@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resize</title>
+</head>
+
+<body>
+    <p id="result">ブラウザのサイズが表示されます。</p>
+
+    <style>
+        .grant {
+            color: #ff0000;
+        }
+    </style>
+
+    <script>
+
+        const result = document.getElementById("result");
+
+        window.addEventListener("resize", function () {
+            console.log(window.innerWidth, window.innerHeight);
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            result.innerHTML = w + "px " + h + "px";
+
+            if (h <= 400) {
+                result.classList.add("grant");
+            }
+            else {
+                result.classList.remove("grant");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

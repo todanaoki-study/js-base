@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li class="obj">ccc</li>
+        <li class="obj">ddd</li>
+    </ul>
+
+    <script>
+        // liの全てを取得できる　htmlコレクション型として保存される。
+        //classNameの場合は.つけずに名前だけ"obj"でいける。
+        // const list = document.getElementsByClassName("obj");
+        // console.log(list);
+
+
+
+        //querySelectorは.とか#とか必要
+        // Cssのセレクターのように.#や子孫セレクターなどの指定ができる。
+        //これは最初の一個だけ
+        // const elem = document.querySelector(".obj");
+
+        //これは全部のobj要素
+        //一個しか指定していなくても配列として記憶される
+        // const elem=document.querySelectorAll(".obj")
+
+        //query selectorは変数として。Allは配列として記憶される
+    </script>
+</body>
+
+</html>

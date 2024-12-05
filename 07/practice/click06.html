@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clickGame</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .all {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .chr {
+            width: 30%;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>click game</h1>
+    <p class="msg">クリックでモンスターを倒せ！</p>
+    <div class="all">
+        <div class="chr">
+            <img src="https://trident.takagino.net/doc/2018/javascript/data/03/images/a0.png" alt="">
+            <p>HP:10</p>
+        </div>
+        <div class="chr">
+            <img src="https://trident.takagino.net/doc/2018/javascript/data/03/images/a1.png" alt="">
+            <p>HP:10</p>
+        </div>
+        <div class="chr">
+            <img src="https://trident.takagino.net/doc/2018/javascript/data/03/images/a2.png" alt="">
+            <p>HP:10</p>
+        </div>
+    </div>
+
+    <script>
+        const msg = document.querySelector(".msg");
+
+        const chr = document.querySelectorAll(".chr");
+        const hp = document.querySelectorAll(".chr p");
+
+        //1生存 0死亡
+        const survival = [1, 1, 1];
+
+        const damage = [];
+        for (let i = 0; i < chr.length; i++) {
+            damage[i] = 1;
+        }
+
+        // HPの設定
+        for (let i = 0; i < chr.length; i++) {
+            hp[i].innerHTML = Math.floor(Math.random() * 10 + 5);
+        }
+
+        //更新処理
+        for (let i = 0; i < chr.length; i++) {
+            //攻撃！！
+            chr[i].addEventListener("click", function () {
+                if (hp[i].innerHTML > 0) {
+                    hp[i].innerHTML = hp[i].innerHTML - damage[i];
+                }
+
+                if (hp[i].innerHTML == 0) {
+                    survival[i] = 0;
+
+                    if (survival[0] == 0 && survival[1] == 0 && survival[2] == 0) {
+                        msg.innerHTML = "クリアおめでとう";
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

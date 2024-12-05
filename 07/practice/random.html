@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random</title>
+</head>
+
+<body>
+
+    <body>
+        <button id="btn">ユーモアをもらう</button>
+        <p id="result">ウケる一言が表示されます。</p>
+        <script>
+            const words = [
+                "1.LINEで特に何も送られて来てないのに「ごめん寝てた」って送るとウケます。",
+                "2.ちょっと揉めそうになってるタイミングで「あ、じゃあそこ試合決定ですね」って言うとウケます。",
+                "3.ボーリング行って名前決めるとき「みんなお母さんの名前にしない？」って提案するとウケます。",
+                "4.お腹がなった時「通知きた」って言うとウケます。",
+                "5.ジャンケンであいこが続いているところにタオルを投げ込むとウケます。",
+                "6.友達が自分の家に忘れ物した時「メルカリで売っとくわ」と言うとウケます。",
+                "7.美味い飯屋に行って「美味すぎる。店出した方がいい」って言うとウケます。",
+                "8.髪を切って、「カッコよくなったね」と言われた時に、「じゃあ明日も切ろうかな」って言うとウケます。",
+                "9.海で遊んだ後、「じゃあ帰るわ」と言って海に入っていくとウケます。",
+                "10.遊園地でジェットコースターの順番待ちしている時に「混んでいるから座れないかもよ」と言うとウケます。",
+            ];
+
+            const btn = document.getElementById("btn");
+            const result = document.getElementById("result");
+
+            btn.addEventListener("click", function () {
+                let subscript = Math.floor(Math.random() * words.length);
+
+                result.innerHTML = words[subscript];
+            })
+
+        </script>
+    </body>
+</body>
+
+</html>

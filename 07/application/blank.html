@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blank</title>
+</head>
+
+<body>
+
+    <body>
+        <ul>
+            <li>
+                <a href="https://computer.trident.ac.jp/courses/game_science/">ゲームサイエンス学科</a>
+            </li>
+            <li>
+                <a href="https://computer.trident.ac.jp/courses/cg_specialist/">CGスペシャリスト学科</a>
+            </li>
+            <li><a href="https://computer.trident.ac.jp/courses/web_design/">Web学科</a></li>
+        </ul>
+
+        <script>
+            const btn = document.querySelectorAll("li");
+            const links = document.querySelectorAll('a[href^="https"]');
+
+            for (let i = 0; i < btn.length; i++) {
+                links[i].setAttribute("target", "_blank");
+                // links[i].target = "_blank";
+            }
+
+        </script>
+    </body>
+</body>
+
+</html>
