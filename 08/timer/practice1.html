@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bg</title>
+</head>
+
+<body>
+
+    <script>
+
+        let count = 0;
+        let timer = 0;
+
+        //ランダムなRGB値を生成（初期値:0~255から抽選）;
+        const randomColor = (val = 255) => {
+            return Math.floor(Math.random() * val)
+        }
+
+        //背景色をセット
+        const setBackground = () => {
+            return "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")";
+        }
+
+        const countUp = () => {
+            document.body.style.backgroundColor = setBackground();
+        }
+
+        //1秒ごとに以下を実行
+        timer = setInterval(countUp, 1000);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btn</title>
+</head>
+
+<body>
+    <button class="number">1</button>
+    <button class="number">2</button>
+    <button class="number">3</button>
+    <button class="random">ランダム</button>
+    <p class="result"></p>
+
+    <script>
+        //用意した配列
+        const words = ["1.apple", "2.banana", "3.orange"];
+
+        //結果を表示するp要素を取得
+        const result = document.querySelector(".result");
+
+
+        //wordsに書き換える
+        const getWord = (num) => {
+            result.innerHTML = words[num];
+        };
+
+        //ランダムを生成する関数
+        const getRand = (random) => {
+            return Math.floor(Math.random() * random);
+        }
+
+        //最初に読み込まれた時にランダムな値を表示する。
+        getWord(getRand(3));
+
+        // randomの取得
+        const randomBtn = document.querySelector(".random");
+        randomBtn.addEventListener("click", () => {
+            getWord(getRand(3));
+        })
+
+        const button = document.querySelectorAll(".number",);
+        for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener("click", (e) => {
+                const num = e.target.innerHTML - 1;
+                getWord(num);
+            })
+        }
+
+    </script>
+</body>
+
+</html>

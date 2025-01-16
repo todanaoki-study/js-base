@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let count = 0;
+        let timer = 0;
+
+        const countUp = () => {
+            console.log(++count);
+            //ここに入れるとsetIntervalと同じ処理にできる。
+            if (count < 5) {
+                setTimeout(countUp, 1000);
+            }
+        }
+
+        //これだと1秒後に一回だけ実行
+        timer = setTimeout(countUp, 1000);
+    </script>
+</body>
+
+</html>

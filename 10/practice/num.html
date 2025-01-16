@@ -1,0 +1,45 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダムな数字を生成</title>
+    <style>
+        span {
+            margin-bottom: 10px;
+            display: block;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">生成</button>
+
+    <!-- !js -->
+    <script>
+
+        //要素の生成の関数
+        const createElem = (parentSelect, elemName, className, content = "") => {
+            const makeArea = document.querySelector(parentSelect);
+            const newElem = document.createElement(elemName);
+            newElem.classList.add(className);
+            newElem.textContent = content;
+            makeArea.appendChild(newElem);
+        }
+
+        //開いたらul追加
+        const createUl = document.createElement("ul");
+        document.body.appendChild(createUl);
+
+        //span生成
+        const btn = document.querySelector("#btn");
+        btn.addEventListener("click", () => {
+            let num = Math.floor(Math.random() * 100);
+            createElem("ul", "span", "num__random", num);
+        })
+    </script>
+</body>
+
+</html>

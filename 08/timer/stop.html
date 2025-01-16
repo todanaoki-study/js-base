@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopGame</title>
+</head>
+
+<body>
+    <button class="start">start</button>
+    <button class="stop">stop</button>
+    <p class="result__num">0</p>
+    <p class="result__voice">100ぴったりで止めてね！</p>
+
+
+    <script>
+        //!-----------------------------------------------変数
+        const button = document.querySelectorAll("button");
+        const startButton = document.querySelector(".start");
+        const stopButton = document.querySelector(".stop");
+
+        const resultNum = document.querySelector(".result__num");
+        const resultVoice = document.querySelector(".result__voice");
+
+        let timer;
+        let liveNum = 0;
+
+        //-------------------------------------------------関数
+
+        const numCountUp = () => {
+            ++liveNum;
+            resultNum.innerHTML = liveNum;
+        }
+
+        //結果を決める
+        const choiceVoice = (val = 0) => {
+            if (val == 100) {
+                resultVoice.innerHTML = "すごい！";
+            }
+            else if (val > 100 || val < 100) {
+                resultVoice.innerHTML = "残念！";
+            }
+        }
+
+        //結果の初期化
+        const initialize = () => {
+            resultVoice.innerHTML = "100ぴったりで止めてね！";
+            liveNum = 0;
+            console.log("通ってるよ");
+        }
+
+        //最初の一回目か二回目かを判定する
+        //toto
+        const doubleClick = (val = 0) => {
+            if (val > 0) {
+
+            }
+        }
+
+
+        //判定
+        for (let i = 0; i < button.length; i++) {
+
+            let num = 0;
+
+            //START
+            button[i].addEventListener("click", () => {
+                if (button[i].classList.contains("start")) {
+
+                    initialize();
+                    clearInterval(timer);
+                    timer = setInterval(numCountUp, 50);
+                }
+            })
+
+            //STOP
+            button[i].addEventListener("click", () => {
+                if (button[i].classList.contains("stop")) {
+                    choiceVoice(liveNum);
+                    clearInterval(timer);
+                }
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

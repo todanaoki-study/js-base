@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ１</title>
+</head>
+
+<body>
+
+    <div>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+    </div>
+
+    <img id="pic" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="" />
+
+    <script>
+        const url = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/';
+        const files = ['daikichi.png', 'chuukichi.png', 'syoukichi.png', 'kyou.png', 'daikyou.png'];
+
+        const start = document.getElementById("start");
+        const stop = document.getElementById("stop");
+
+        const pic = document.getElementById("pic");
+
+        let timer = 0;
+
+        //添字用のカウンター
+        let counter = 0;
+        //連打防止用のカウンター
+        let clickCount = 0;
+
+        //ファイル名の変更
+        const countUp = () => {
+            pic.src = url + files[counter];
+            counter++;
+            if (counter > files.length - 1) {
+                counter = 0;
+            }
+            console.log(counter);
+        }
+
+        //startが押されたら以下を実行する。
+        start.addEventListener("click", () => {
+            //クリック数を判定
+            clickCount += 1;
+
+            //クリックを連打してなければ実行
+            if (clickCount < 2) {
+                //100msごとにcountUp実行　countUpはファイルのパス名を変更している
+                timer = setInterval(countUp, 500);
+            }
+        })
+
+        //stopが押されたら以下を実行する
+        stop.addEventListener("click", () => {
+            //timerを止める。　timerはcountUpを実行しているのでそれを止める。
+            clearInterval(timer);
+
+            //クリック数をリセット　再びstart可能
+            clickCount = 0;
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background-color: #ddd;
+}
+
+.faq {
+    max-width: 800px;
+    margin: 3em auto;
+}
+
+.faq__q {
+    padding: 0.5em 1em;
+    background-color: #39c;
+    cursor: pointer;
+}
+
+.faq__a {
+    height: 0;
+    transition: .3s;
+    margin-left: 0;
+    padding: 0 1em;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.active .faq__a {
+    height: auto;
+    padding: 0.5em 1em;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>あいうえお</h1>
+    <p> kakikukeko</p>
+
+    <script>
+
+        // const clickEvent = (val = 0) => {
+        //     console.log(val);
+        // };
+
+        // //これだとイベント発生時、つまりクリック時に起きることになる。
+        // window.addEventListener("click", () => {
+        //     clickEvent();
+        // });
+
+        // const clickEvent = (e) => {
+        //     console.log(e);
+        //     // targetは押したところの要素を調べる
+        //     console.log(e.target);
+        // };
+        // window.addEventListener("click", clickEvent);
+
+
+        //e 自体がeventの略で変数ではない。
+        const clickEvent = (e, val = 0) => {
+            console.log(e);
+            console.log(val);
+        };
+
+        window.addEventListener("click", (e) => {
+            clickEvent(e, "aaa");
+        });
+    </script>
+</body>
+
+</html>

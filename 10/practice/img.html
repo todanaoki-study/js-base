@@ -1,0 +1,51 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダムな画像を生成</title>
+    <style>
+        img {
+            margin-bottom: 10px;
+            display: block;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">生成</button>
+
+    <!-- !js -->
+    <script>
+        //画像のパスを記録
+        const url = [
+            'https://placehold.jp/150x150.png',
+            'https://placehold.jp/300x300.png',
+            'https://placehold.jp/300x100.png',
+        ];
+
+        //要素の生成の関数
+        const createElem = (parentSelect, elemName, className, content = "") => {
+            const makeArea = document.querySelector(parentSelect);
+            const newElem = document.createElement(elemName);
+            newElem.classList.add(className);
+            newElem.src = content;
+            makeArea.appendChild(newElem);
+        }
+
+        //開いたらul追加
+        const createUl = document.createElement("ul");
+        document.body.appendChild(createUl);
+
+        //span生成
+        const btn = document.querySelector("#btn");
+        btn.addEventListener("click", () => {
+            let passIndex = Math.floor(Math.random() * 3);
+            createElem("ul", "img", "num__random", url[passIndex]);
+        })
+    </script>
+</body>
+
+</html>
